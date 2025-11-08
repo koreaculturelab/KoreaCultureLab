@@ -175,6 +175,48 @@ hr.sep{border:0;border-top:1px dashed #e5e7eb;margin:28px 0}
     margin-top: 8px;
   }
 }
+
+/* Mobile menu */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* Ensure header can anchor the dropdown */
+.header { position: sticky; top: 0; z-index: 10; }
+.header .nav { position: relative; }
+
+/* Desktop: keep existing .navlinks display */
+@media (max-width: 700px) {
+  .menu-toggle { display: block; }
+
+  .navlinks {
+    display: none;                 /* hidden by default */
+    position: absolute;
+    top: 64px;                     /* adjust if header taller/shorter */
+    right: 0;
+    left: 0;
+    background: #fff;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid #eee;
+    box-shadow: var(--shadow);
+    padding: 8px 0;
+    text-align: center;
+  }
+  .navlinks.open { display: flex; }
+
+  .navlinks a,
+  .navlinks .lang {
+    padding: 12px 16px;
+    border: 0;
+    width: 100%;
+  }
+}
 @media (max-width:900px){
   .card{grid-column:span 12}
   .hero h2{font-size:34px}

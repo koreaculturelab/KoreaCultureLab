@@ -4,8 +4,9 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Korea Culture Lab</title>
-  <meta name="description" content="Korea Culture Lab — Einfache koreanische Rezepte (Bibimbap, Kimbap) und Kontakt."/>
-  <link rel="stylesheet" href="./styles.css"/>
+  <meta name="description" content="Korea Culture Lab — Einfache koreanische Rezepte & Kultur."/>
+  <link rel="stylesheet" href="/styles.css"/>
+  <base href="/">
 </head>
 <body>
   <header class="header">
@@ -15,51 +16,48 @@
         <h1>Korea Culture Lab</h1>
       </div>
       <nav class="navlinks">
-        <a href="#start">Start</a>
-        <a href="#rezepte">Rezepte</a>
-        <a href="#kontakt">Kontakt</a>
+        <a href="/">Start</a>
+        <a href="/recipes/">Rezepte</a>
+        <a href="/#kontakt">Kontakt</a>
+        <span class="lang">🌐 <a href="/">DE</a> | <a href="/en/">EN</a></span>
       </nav>
     </div>
   </header>
 
-  <a id="start"></a>
   <section class="hero container">
     <h2>요리연구소 • Korea Culture Lab</h2>
-    <p>Schlichte, alltagstaugliche koreanische Rezepte. Wir starten mit <strong>Bibimbap</strong> und <strong>Kimbap</strong>.</p>
+    <p>Schlichte, schnelle koreanische Gerichte. Aktuell starten wir mit <strong>Bibimbap</strong> und <strong>Kimbap</strong>.</p>
     <div class="cta">
-      <a href="#rezepte">Zu den Rezepten</a>
-      <a href="#kontakt">Kontakt aufnehmen</a>
+      <a href="/recipes/">Rezepte durchsuchen</a>
+      <a href="/recipes/bibimbap.html">Bibimbap ansehen</a>
     </div>
   </section>
 
-  <a id="rezepte"></a>
-  <section class="container section">
-    <h3>Rezepte</h3>
-    <div class="grid">
-      <!-- Cards now link to detail pages -->
-      <a class="card" href="/recipes/bibimbap.html">
-        <img src="https://images.unsplash.com/photo-1569058242567-94c3e5f3b9c7?q=80&w=1600&auto=format&fit=crop" alt="Bibimbap"/>
-        <div class="body">
-          <h4>비빔밥 • Bibimbap</h4>
-          <div class="meta">25–35 Min · 2 Portionen</div>
-          <div class="tags"><span class="tag">Gochujang</span><span class="tag">Gemüse</span><span class="tag">Steintopf</span></div>
-        </div>
-      </a>
-      <a class="card" href="/recipes/kimbap.html">
-        <img src="https://images.unsplash.com/photo-1580215935060-5d4c3c90e1b7?q=80&w=1600&auto=format&fit=crop" alt="Kimbap"/>
-        <div class="body">
-          <h4>김밥 • Kimbap</h4>
-          <div class="meta">40–50 Min · 2–3 Rollen</div>
-          <div class="tags"><span class="tag">Picknick</span><span class="tag">Nori</span><span class="tag">Reis</span></div>
-        </div>
-      </a>
-    </div>
-  </section>
+  <main class="container split">
+    <section>
+      <h3 class="section-title">Empfohlene Rezepte</h3>
+      <div class="grid">
+        <a class="card" href="/recipes/bibimbap.html">
+          <img src="https://images.unsplash.com/photo-1569058242567-94c3e5f3b9c7?q=80&w=1600&auto=format&fit=crop" alt="Bibimbap"/>
+          <div class="body">
+            <h3>비빔밥 • Bibimbap</h3>
+            <div class="meta">25–35 Min · 2 Portionen</div>
+            <div class="tags"><span class="tag">Gochujang</span><span class="tag">Gemüse</span><span class="tag">Steintopf</span></div>
+          </div>
+        </a>
+        <a class="card" href="/recipes/kimbap.html">
+          <img src="https://images.unsplash.com/photo-1580215935060-5d4c3c90e1b7?q=80&w=1600&auto=format&fit=crop" alt="Kimbap"/>
+          <div class="body">
+            <h3>김밥 • Kimbap</h3>
+            <div class="meta">40–50 Min · 2–3 Rollen</div>
+            <div class="tags"><span class="tag">Picknick</span><span class="tag">Nori</span><span class="tag">Reis</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
 
-  <a id="kontakt"></a>
-  <section class="container section">
-    <h3>Kontakt</h3>
-    <div class="contact">
+    <aside id="kontakt" class="contact">
+      <h3>Kontakt</h3>
       <p>Fragen, Kochkurse oder Zusammenarbeit? Schreib uns gern.</p>
       <p><strong>E‑Mail:</strong> <a href="mailto:hello@koreaculturelab.de">hello@koreaculturelab.de</a></p>
       <form action="https://formspree.io/f/your-id" method="POST">
@@ -70,10 +68,10 @@
         <label class="small">Nachricht</label>
         <textarea name="message" rows="5" required></textarea>
         <div style="margin-top:10px"><button type="submit">Senden</button></div>
-        <p class="small">Hinweis: Formular nutzt Formspree. Ersetze die Action‑URL durch deinen eigenen Endpunkt oder nutze nur die Mailadresse.</p>
+        <p class="small">Hinweis: Dieses Formular nutzt Formspree. Ersetze die Action‑URL durch deinen eigenen Endpunkt.</p>
       </form>
-    </div>
-  </section>
+    </aside>
+  </main>
 
   <footer class="footer">
     © <span id="y"></span> Korea Culture Lab — Rezepte & Kultur.

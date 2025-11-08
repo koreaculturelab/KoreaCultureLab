@@ -122,7 +122,59 @@ hr.sep{border:0;border-top:1px dashed #e5e7eb;margin:28px 0}
 @media (max-width: 700px){
   .carousel-slide { height: 260px; }
 }
+/* --- Mobile menu --- */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
 
+/* Default: desktop layout */
+.navlinks {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Mobile view */
+@media (max-width: 700px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navlinks {
+    display: none;
+    position: absolute;
+    top: 64px; /* height of header */
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1px solid #eee;
+    box-shadow: var(--shadow);
+    padding: 12px 0;
+    text-align: center;
+  }
+
+  .navlinks.open {
+    display: flex;
+  }
+
+  .navlinks a {
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+  }
+
+  .lang {
+    margin-top: 8px;
+  }
+}
 @media (max-width:900px){
   .card{grid-column:span 12}
   .hero h2{font-size:34px}

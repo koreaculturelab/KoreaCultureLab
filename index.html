@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="/styles.css"/>
   <base href="/">
 </head>
-
 <body>
   <header class="header">
     <div class="container nav">
@@ -32,110 +31,57 @@
       <a href="/recipes/">Rezepte durchsuchen</a>
     </div>
   </section>
-  
-</section>
+
+  <!-- Featured cards -->
   <main class="container section">
-    <a class="card" href="/recipes/kimbap.html">
-      <img src="images/kimbap1.jpg" alt="Kimbap"/>
-      <div class="body">
-        <h3>김밥 • Kimbap</h3>
-        <div class="meta">40–50 Min · 2–3 Rollen</div>
-        <div class="tags">
-          <span class="tag">Picknick</span>
-          <span class="tag">Nori</span>
-          <span class="tag">Reis</span>
-        </div>
-      </div>
-      <div class="card">
-        <img src="images/bibimbap1.jpg" alt="Bibimbap"/>
+    <div class="grid">
+      <a class="card" href="/recipes/kimbap.html">
+        <img src="/images/kimbap1.jpg" alt="Kimbap"/>
         <div class="body">
-          <h4>비빔밥 • Bibimbap</h4>
-          <div class="meta">25–35 Min · 2 Portionen</div>
-          <div class="tags"><span class="tag">Gochujang</span><span class="tag">Gemüse</span><span class="tag">Steintopf</span></div>
+          <h3>김밥 • Kimbap</h3>
+          <div class="meta">40–50 Min · 2–3 Rollen</div>
+          <div class="tags">
+            <span class="tag">Picknick</span>
+            <span class="tag">Nori</span>
+            <span class="tag">Reis</span>
+          </div>
         </div>
-      </div>
-    </a>
-  </section>
-    
-  <main class="container">
+      </a>
 
-  <hr class="sep"/>
+      <a class="card" href="/recipes/bibimbap.html">
+        <img src="/images/bibimbap1.jpg" alt="Bibimbap"/>
+        <div class="body">
+          <h3>비빔밥 • Bibimbap</h3>
+          <div class="meta">25–35 Min · 2 Portionen</div>
+          <div class="tags">
+            <span class="tag">Gochujang</span>
+            <span class="tag">Gemüse</span>
+            <span class="tag">Steintopf</span>
+          </div>
+        </div>
+      </a>
+    </div>
 
-  <aside id="kontakt" class="contact">
-    <h3>Kontakt</h3>
-    <p>Fragen, Kochkurse oder Zusammenarbeit? Schreib uns gern.</p>
-    <form action="https://formspree.io/f/xwpaeprw" method="POST">
-      <label class="small">Dein Name</label>
-      <input type="text" name="name" required>
-      <label class="small">Deine E-Mail</label>
-      <input type="email" name="email" required>
-      <label class="small">Nachricht</label>
-      <textarea name="message" rows="5" required></textarea>
-      <div style="margin-top:10px"><button type="submit">Senden</button></div>
-    </form>
-  </aside>
-</main>
+    <hr class="sep"/>
+
+    <aside id="kontakt" class="contact">
+      <h3>Kontakt</h3>
+      <p>Fragen, Kochkurse oder Zusammenarbeit? Schreib uns gern.</p>
+      <form action="https://formspree.io/f/xwpaeprw" method="POST">
+        <label class="small">Dein Name</label>
+        <input type="text" name="name" required>
+        <label class="small">Deine E-Mail</label>
+        <input type="email" name="email" required>
+        <label class="small">Nachricht</label>
+        <textarea name="message" rows="5" required></textarea>
+        <div style="margin-top:10px"><button type="submit">Senden</button></div>
+      </form>
+    </aside>
+  </main>
 
   <footer class="footer">
     © <span id="y"></span> Korea Culture Lab.
   </footer>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-  <script>
-(function(){
-  function setupCarousel(root){
-    const track = root.querySelector('.carousel-track');
-    const slides = Array.from(root.querySelectorAll('.carousel-slide'));
-    const prev = root.querySelector('.prev');
-    const next = root.querySelector('.next');
-    const dotsWrap = root.querySelector('.carousel-dots');
-
-    // build dots
-    slides.forEach((_, i) => {
-      const dot = document.createElement('div');
-      dot.className = 'carousel-dot' + (i===0 ? ' active' : '');
-      dot.addEventListener('click', () => {
-        track.scrollTo({left: track.clientWidth * i, behavior: 'smooth'});
-      });
-      dotsWrap.appendChild(dot);
-    });
-    const dots = Array.from(dotsWrap.children);
-
-    // update active dot
-    function update(){
-      const i = Math.round(track.scrollLeft / track.clientWidth);
-      dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
-    }
-    track.addEventListener('scroll', () => {
-      if (track._ticking) return;
-      track._ticking = true;
-      requestAnimationFrame(() => { update(); track._ticking = false; });
-    });
-
-    // buttons
-    prev.addEventListener('click', () => {
-      const i = Math.floor(track.scrollLeft / track.clientWidth) - 1;
-      track.scrollTo({left: track.clientWidth * Math.max(i, 0), behavior: 'smooth'});
-    });
-    next.addEventListener('click', () => {
-      const i = Math.ceil(track.scrollLeft / track.clientWidth) + 1;
-      track.scrollTo({left: track.clientWidth * Math.min(i, slides.length-1), behavior: 'smooth'});
-    });
-
-    // keyboard
-    root.tabIndex = 0;
-    root.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') next.click();
-      if (e.key === 'ArrowLeft') prev.click();
-    });
-
-    // keep snaps tidy on resize
-    window.addEventListener('resize', () => {
-      const i = Math.round(track.scrollLeft / track.clientWidth);
-      track.scrollTo({left: track.clientWidth * i});
-    });
-  }
-  document.querySelectorAll('.carousel').forEach(setupCarousel);
-})();
-</script>
 </body>
 </html>
